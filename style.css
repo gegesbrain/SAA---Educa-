@@ -1,0 +1,175 @@
+:root{
+
+  --primary:        hsl(212, 77%, 29%);
+  --primary-dark:   #162347;
+  --accent:         #d9a441;
+  --bg:             #f5f7f5;
+  --card:           #ffffff;
+  --text:           #05203f;
+  --muted:          #003079;
+  --border:         #e2e6e8;
+  --danger:         #c94b4b;
+  --success:        #26a869;
+  --shadow:         0 8px 25px rgba(13, 47, 85, 0.226);
+  
+}
+
+/* 1. Esconde a barra de rolagem no Chrome, Safari, Opera e novos Edges */
+#conteudo-principal::-webkit-scrollbar,
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display:              none;
+}
+
+/* 2. Esconde a barra de rolagem no Firefox e Edges antigos */
+#conteudo-principal,
+body,
+html {
+  -ms-overflow-style:   none;  /* IE e Edge antigo */
+  scrollbar-width:      none;  /* Firefox */
+}
+
+/* Estilização do topo do painel */
+.main-header {
+
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      flex-start;
+  
+  /* Ajuste crucial: Substitua 260px pela largura exata da sua .sidebar */
+  padding: 20px 20px 20px 280px; 
+  
+  background-color: #ffffff; /* Ou a cor de fundo do seu painel */
+  border-bottom:    1px solid var(--border, #e0e0e0);
+  width:            100%;
+  box-sizing:       border-box;
+
+}
+
+/* Força o título a manter uma formatação limpa e visível */
+#pageTitle {
+
+  font-size:          24px;
+  font-weight:        600;
+  color:              #1e293b; /* Tom cinza escuro moderno */
+  margin:             0 0 4px 0;
+  padding:            0;
+  line-height:        1.2;
+
+}
+
+/* Formatação do subtítulo */
+#pageSubtitle {
+
+  font-size:          14px;
+  color:              #64748b; /* Tom muted */
+  margin:             0;
+  padding:            0;
+
+}
+
+/* Certifique-se de que o container de conteúdo também respeite o espaço da sidebar */
+#conteudo-principal {
+
+  padding-left:       240px; /* Deve ser o mesmo valor usado no .main-header */
+
+}
+
+
+/* Classe que será aplicada ao contêiner de conteúdo principal */
+.main-content-wrapper {
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform; /* Melhora a performance de renderização no navegador */
+
+}
+
+/* Estado ativo após a transição */
+.main-content-wrapper.active {
+
+  opacity: 1;
+  transform: translateY(0);
+
+}
+
+/* Efeito hover suave nos botões da sidebar */
+.nav-item {
+
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  
+}
+
+*{box-sizing:border-box}
+
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer}
+
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:250px;background:#fff;border-right:1px solid var(--border);padding:22px 15px;display:flex;flex-direction:column;z-index:20}
+
+.brand{display:flex;align-items:center;gap:11px;padding:5px 9px 25px;border-bottom:1px solid var(--border)}
+
+.brand strong{display:block;font-size:22px;color:var(--primary)}
+
+.brand span{font-size:11px;color:var(--muted)}
+
+.logo-slot{width:45px;height:45px;border:2px dashed #aab8b0;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:8px;font-weight:800;color:var(--muted)}
+
+nav{padding-top:18px;display:grid;gap:5px}
+
+.nav-item,.logout{width:100%;border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:9px;color:#536159;display:flex;gap:12px;align-items:center}
+
+.nav-item:hover{background:#f0f5f2}
+
+.nav-item.active{background:#e8f0ec;color:var(--primary);font-weight:700}
+
+.sidebar-bottom{margin-top:auto}
+
+.logout{color:var(--danger)}
+
+.main{margin-left:250px;min-height:100vh}
+
+.topbar{height:92px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 38px}
+
+.topbar h1{margin:0;font-size:25px}
+
+.topbar p{margin:5px 0 0;color:var(--muted);font-size:13px}
+
+.profile{display:flex;align-items:center;gap:10px}.profile small{display:block;color:var(--muted);margin-top:2px}.avatar{width:42px;height:42px;border-radius:50%;background:var(--primary);color:white;display:grid;place-items:center;font-weight:700}
+
+.content{padding:30px 38px;max-width:1400px;margin:auto}
+
+.mobile-menu{display:none;border:0;background:none;font-size:22px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:25px}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:21px;box-shadow:var(--shadow)}
+
+.stat{display:flex;justify-content:space-between;align-items:center}.stat .num{font-size:30px;font-weight:800;margin-top:8px}.stat p{margin:0;color:var(--muted);font-size:13px}.icon{width:45px;height:45px;border-radius:10px;background:#eaf1ed;display:grid;place-items:center;color:var(--primary);font-size:20px}
+
+.grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.section-title h2{font-size:17px;margin:0}.muted{color:var(--muted);font-size:13px}
+
+.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:13px 10px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}.table tr:last-child td{border-bottom:0}
+
+.badge{display:inline-block;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:700}.badge.ok{background:#e5f3eb;color:#307653}.badge.warn{background:#fff1d7;color:#986c1e}.badge.red{background:#fde8e8;color:#a43e3e}
+
+.btn{border:0;background:var(--primary);color:#fff;border-radius:8px;padding:10px 15px;font-weight:600}.btn:hover{background:var(--primary-dark)}.btn.secondary{background:#edf2ef;color:var(--primary)}.btn.danger{background:#fae9e9;color:var(--danger)}
+
+.actions{display:flex;gap:8px;flex-wrap:wrap}.toolbar{display:flex;justify-content:space-between;gap:12px;margin-bottom:18px}.search{border:1px solid var(--border);background:#fff;border-radius:8px;padding:10px 12px;min-width:240px}
+
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700}.field input,.field select,.field textarea{border:1px solid var(--border);border-radius:8px;padding:11px;background:#fff;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary)}.form-actions{margin-top:17px;display:flex;justify-content:flex-end;gap:8px}
+
+.page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{transition:.2s}.feature:hover{transform:translateY(-2px)}.feature h3{margin:12px 0 6px}.feature p{margin:0 0 16px;color:var(--muted);font-size:13px;line-height:1.5}
+
+.empty{text-align:center;padding:35px;color:var(--muted)}
+.toast{position:fixed;right:25px;bottom:25px;background:#26352e;color:white;padding:12px 17px;border-radius:8px;opacity:0;transform:translateY(15px);transition:.25s;z-index:100}.toast.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){.sidebar{transform:translateX(-100%);transition:.25s}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.mobile-menu{display:block}.topbar{padding:0 18px}.content{padding:22px 18px}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.page-grid{grid-template-columns:1fr 1fr}}
+
+@media(max-width:600px){.stats,.page-grid,.form-grid{grid-template-columns:1fr}.profile>div:last-child{display:none}.topbar h1{font-size:20px}.topbar p{display:none}.toolbar{display:grid}.search{width:100%}}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAA — Sistema de Administração Acadêmica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app-container">
+    <div id="toast" class="toast"></div>
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-slot">
+          <img src="/img/educalogo.jpg" alt="Logo SAA" height="60" width="60">
+        </div>
+        <div>
+          <strong>Educa+</strong>
+          <span>Sistema Acadêmico</span>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-item active" data-page="inicio">⌂ <span>Início</span></button>
+        <button class="nav-item" data-page="alunos">♙ <span>Alunos</span></button>
+        <button class="nav-item" data-page="professores">♟ <span>Professores</span></button>
+        <button class="nav-item" data-page="disciplinas">▣ <span>Disciplinas</span></button>
+        <button class="nav-item" data-page="notas">▤ <span>Lançar notas</span></button>
+        <button class="nav-item" data-page="frequencia">✓ <span>Frequência</span></button>
+        <button class="nav-item" data-page="matriculas">▦ <span>Matrículas</span></button>
+        <button class="nav-item" data-page="atividades">☑ <span>Atividades</span></button>
+        <button class="nav-item" data-page="avisos">◉ <span>Avisos</span></button>
+        <button class="nav-item" data-page="relatorios">▤ <span>Relatórios</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-page="config">⚙ <span>Configurações</span></button>
+        <button class="logout" onclick="showToast('Sessão encerrada (modo demonstração).')">↪ Sair</button>
+      </div>
+    </aside>
+
+    <main id="conteudo-principal" class="main-content-wrapper active">
+      <header class="topbar">
+        <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+        <div>
+          <h1 id="pageTitle">Visão geral</h1>
+          <p id="pageSubtitle">Acompanhe as principais informações acadêmicas.</p>
+        </div>
+        <div class="profile">
+          <div class="avatar">D</div>
+          <div><strong>Direção</strong><small>Administrador</small></div>
+        </div>
+      </header>
+
+      <section id="app" class="content"></section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
